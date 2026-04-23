@@ -21,6 +21,10 @@ export type {
   WorkspaceSettings,
   WorkspaceSyncState,
 } from "@cognark/module-workspace/domain/workspace-model";
+export {
+  NoopWorkspacePersistenceBootstrap,
+  type WorkspacePersistenceBootstrapPort,
+} from "@cognark/module-workspace/ports/outbound/workspace-persistence-bootstrap-port";
 
 export interface WorkspaceModuleDescriptor {
   readonly name: "workspace";

@@ -8,6 +8,14 @@ export default defineConfig({
   resolve: {
     alias: [
       {
+        find: /^@cognark\/module-persistence\/(.*)$/,
+        replacement: `${rootPath}modules/persistence/$1`,
+      },
+      {
+        find: "@cognark/module-persistence",
+        replacement: `${rootPath}modules/persistence/index.ts`,
+      },
+      {
         find: /^@cognark\/module-session\/(.*)$/,
         replacement: `${rootPath}modules/session/$1`,
       },

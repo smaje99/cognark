@@ -22,7 +22,7 @@ Introduce these behind ports and adapters when the corresponding requirement nee
 - BlockNote for the rich document editor.
 - React Flow for the semantic graph canvas.
 - bpmn-js for BPMN modeling.
-- SQLite driver or binding selected during `REQ-003`.
+- `node:sqlite` behind a persistence adapter for `REQ-003`.
 - MCP SDK for `apps/mcp`.
 - Zod or equivalent schema validation for contracts.
 - Playwright for UI/e2e checks once UI surfaces exist.

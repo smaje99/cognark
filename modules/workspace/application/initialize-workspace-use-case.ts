@@ -29,18 +29,28 @@ import {
   serializeWorkspaceSyncState,
 } from "@cognark/module-workspace/domain/workspace-serialization";
 import type { WorkspaceFileSystemPort } from "@cognark/module-workspace/ports/outbound/workspace-file-system-port";
+import {
+  NoopWorkspacePersistenceBootstrap,
+  type WorkspacePersistenceBootstrapPort,
+} from "@cognark/module-workspace/ports/outbound/workspace-persistence-bootstrap-port";
 
 export class InitializeWorkspaceUseCase {
-  public constructor(private readonly fileSystem: WorkspaceFileSystemPort) {}
+  public constructor(
+    private readonly fileSystem: WorkspaceFileSystemPort,
+    private readonly persistenceBootstrap: WorkspacePersistenceBootstrapPort = new NoopWorkspacePersistenceBootstrap(),
+  ) {}
 
   public async execute(input: InitializeWorkspaceInput): Promise<InitializeWorkspaceResult> {
     const rootPath = this.fileSystem.resolvePath(input.rootPath);
     const integrity = await this.inspectWorkspace(rootPath);
 
     if (integrity.isValid) {
+      const workspace = await this.loadWorkspaceDescriptor(rootPath);
+      await this.persistenceBootstrap.bootstrapWorkspacePersistence(workspace);
+
       return {
         status: "opened",
-        workspace: await this.loadWorkspaceDescriptor(rootPath),
+        workspace,
         integrity,
         repairedPaths: [],
       };
@@ -49,13 +59,15 @@ export class InitializeWorkspaceUseCase {
     if (!integrity.hasWorkspaceMarkers) {
       const manifest = this.buildManifest(input);
       await this.materializeWorkspace(rootPath, manifest);
+      const workspace = {
+        rootPath,
+        manifest,
+      };
+      await this.persistenceBootstrap.bootstrapWorkspacePersistence(workspace);
 
       return {
         status: "initialized",
-        workspace: {
-          rootPath,
-          manifest,
-        },
+        workspace,
         integrity: {
           isValid: true,
           hasWorkspaceMarkers: true,
@@ -90,12 +102,15 @@ export class InitializeWorkspaceUseCase {
         };
       }
 
+      const workspace = {
+        rootPath,
+        manifest,
+      };
+      await this.persistenceBootstrap.bootstrapWorkspacePersistence(workspace);
+
       return {
         status: "repaired",
-        workspace: {
-          rootPath,
-          manifest,
-        },
+        workspace,
         integrity: repairedIntegrity,
         repairedPaths,
       };

@@ -39,6 +39,7 @@ All important Markdown artifacts require frontmatter with human ID, UUID, type, 
 SQLite stores operational projections:
 
 - project record;
+- schema migrations;
 - nodes and edges;
 - file index;
 - artifact file metadata;

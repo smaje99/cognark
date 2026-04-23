@@ -24,6 +24,7 @@ Use ports for dependencies that may change:
 
 - `FileSystemPort`
 - `WorkspaceRepository`
+- `WorkspacePersistenceBootstrapPort`
 - `GraphRepository`
 - `GitPort`
 - `McpToolPort`

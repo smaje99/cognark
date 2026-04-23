@@ -14,6 +14,7 @@ packages/
 modules/
   workspace/
   session/
+  persistence/
   artifacts/
   context/
   graph/
@@ -50,3 +51,5 @@ Each `modules/*` package is a vertical slice with its own domain, application la
 Modules should evolve independently and communicate through public contracts, application use cases, events, or read models.
 
 `modules/session` owns the single active workspace session boundary. It prevents cross-workspace operations and coordinates contextual cache cleanup when the active workspace changes.
+
+`modules/persistence` owns the local SQLite operational schema, migration runner, and project projection bootstrap. It enters the workspace initializer through an outbound port so workspace domain code stays independent from SQLite bindings.
