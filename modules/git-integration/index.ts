@@ -7,8 +7,7 @@ export interface GitIntegrationModuleDescriptor {
 
 export const gitIntegrationModule: GitIntegrationModuleDescriptor = {
   name: "git-integration",
-  responsibility:
-    "manage-git-bootstrap-snapshots-signing-and-repository-events",
+  responsibility: "manage-git-bootstrap-snapshots-signing-and-repository-events",
   architecture: "hexagonal-vertical-slice",
   status: "scaffolded",
 };

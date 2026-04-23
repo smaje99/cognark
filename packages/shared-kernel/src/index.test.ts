@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { err, ok, DomainError } from "./index.js";
+import { err, ok, DomainError } from "@cognark/shared-kernel";
 
 describe("Result helpers", () => {
   it("wrap values and errors explicitly", () => {
