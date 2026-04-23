@@ -81,6 +81,12 @@ importers:
 
   modules/methodology: {}
 
+  modules/session:
+    dependencies:
+      '@cognark/module-workspace':
+        specifier: workspace:*
+        version: link:../workspace
+
   modules/sync: {}
 
   modules/workspace:

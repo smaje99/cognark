@@ -13,6 +13,7 @@ packages/
   sdk/
 modules/
   workspace/
+  session/
   artifacts/
   context/
   graph/
@@ -47,3 +48,5 @@ Applications may compose modules and adapters. They must not contain deep busine
 Each `modules/*` package is a vertical slice with its own domain, application layer, ports, adapters, contracts, tests, and public `index.ts`.
 
 Modules should evolve independently and communicate through public contracts, application use cases, events, or read models.
+
+`modules/session` owns the single active workspace session boundary. It prevents cross-workspace operations and coordinates contextual cache cleanup when the active workspace changes.

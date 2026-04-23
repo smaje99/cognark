@@ -4,8 +4,8 @@
     "rootDir": ".",
     "outDir": "dist",
     "paths": {
-      "@cognark/module-workspace": ["./index.ts"],
-      "@cognark/module-workspace/*": ["./*"]
+      "@cognark/module-session": ["./index.ts"],
+      "@cognark/module-session/*": ["./*"]
     }
   },
   "include": ["index.ts", "**/*.ts"],

@@ -2,6 +2,8 @@
 
 A Cognark project is a portable local folder. The workspace is the primary operating boundary and the source of truth for a single active session.
 
+Only one workspace may be active in an application session. Opening another workspace must switch the active session explicitly and clear contextual caches before downstream queries, writes, graphs, or agent context can operate on the new project.
+
 ## Workspace Runtime
 
 ```text

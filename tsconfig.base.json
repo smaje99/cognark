@@ -3,11 +3,6 @@
     "target": "ES2025",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "paths": {
-      "@cognark/shared-kernel": ["./packages/shared-kernel/src/index.ts"],
-      "@cognark/module-workspace": ["./modules/workspace/index.ts"],
-      "@cognark/module-workspace/*": ["./modules/workspace/*"]
-    },
     "types": ["node"],
     "strict": true,
     "declaration": true,

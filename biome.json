@@ -8,11 +8,11 @@
   "files": {
     "includes": [
       "**",
-      "!**/node_modules/**",
-      "!**/dist/**",
-      "!**/.turbo/**",
-      "!**/coverage/**",
-      "!examples/demo-workspace/**"
+      "!**/node_modules",
+      "!**/dist",
+      "!**/.turbo",
+      "!**/coverage",
+      "!examples/demo-workspace"
     ]
   },
   "formatter": {
