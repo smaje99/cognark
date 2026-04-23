@@ -79,6 +79,8 @@ importers:
 
   modules/graph: {}
 
+  modules/logging: {}
+
   modules/methodology: {}
 
   modules/persistence:

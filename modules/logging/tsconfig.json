@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
+    "paths": {
+      "@cognark/module-logging": ["./index.ts"],
+      "@cognark/module-logging/*": ["./*"]
+    }
+  },
+  "include": ["index.ts", "**/*.ts"],
+  "exclude": ["dist"]
+}

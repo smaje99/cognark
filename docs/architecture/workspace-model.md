@@ -51,3 +51,7 @@ SQLite stores operational projections:
 - agent context snapshots.
 
 SQLite must be rebuildable from canonical files whenever practical.
+
+## Local Logs
+
+Workspace logs are local-only JSONL files stored under `.workspace/logs`. They are operational evidence for application, persistence, parsing, sync, Git, agent, export, integration, and plugin events; they are not external telemetry.

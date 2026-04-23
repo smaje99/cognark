@@ -15,6 +15,7 @@ modules/
   workspace/
   session/
   persistence/
+  logging/
   artifacts/
   context/
   graph/
@@ -53,3 +54,5 @@ Modules should evolve independently and communicate through public contracts, ap
 `modules/session` owns the single active workspace session boundary. It prevents cross-workspace operations and coordinates contextual cache cleanup when the active workspace changes.
 
 `modules/persistence` owns the local SQLite operational schema, migration runner, and project projection bootstrap. It enters the workspace initializer through an outbound port so workspace domain code stays independent from SQLite bindings.
+
+`modules/logging` owns local structured JSONL logs under `.workspace/logs`. It provides append, recent-read, rotation, and export operations without external telemetry.

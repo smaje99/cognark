@@ -23,6 +23,7 @@ Introduce these behind ports and adapters when the corresponding requirement nee
 - React Flow for the semantic graph canvas.
 - bpmn-js for BPMN modeling.
 - `node:sqlite` behind a persistence adapter for `REQ-003`.
+- JSONL files in `.workspace/logs` behind a logging adapter for `REQ-004`.
 - MCP SDK for `apps/mcp`.
 - Zod or equivalent schema validation for contracts.
 - Playwright for UI/e2e checks once UI surfaces exist.

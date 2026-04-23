@@ -8,6 +8,14 @@ export default defineConfig({
   resolve: {
     alias: [
       {
+        find: /^@cognark\/module-logging\/(.*)$/,
+        replacement: `${rootPath}modules/logging/$1`,
+      },
+      {
+        find: "@cognark/module-logging",
+        replacement: `${rootPath}modules/logging/index.ts`,
+      },
+      {
         find: /^@cognark\/module-persistence\/(.*)$/,
         replacement: `${rootPath}modules/persistence/$1`,
       },
