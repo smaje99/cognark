@@ -1,0 +1,49 @@
+# Monorepo Structure
+
+Cognark uses a TypeScript monorepo organized around applications, shared packages, and vertical domain modules.
+
+```text
+apps/
+  desktop/
+  mcp/
+packages/
+  shared-kernel/
+  ui/
+  design-system/
+  sdk/
+modules/
+  workspace/
+  artifacts/
+  context/
+  graph/
+  methodology/
+  backlog/
+  diagrams/
+  git-integration/
+  sync/
+  export/
+```
+
+## Applications
+
+`apps/desktop` is the future Tauri desktop shell. It owns runtime composition, navigation, providers, desktop wiring, and presentation entrypoints.
+
+`apps/mcp` is the future local MCP server. It exposes scoped tools and resources for the active workspace only.
+
+Applications may compose modules and adapters. They must not contain deep business rules.
+
+## Shared Packages
+
+`packages/shared-kernel` contains small cross-cutting primitives: IDs, result types, domain errors, and base events.
+
+`packages/ui` contains reusable UI components without domain logic.
+
+`packages/design-system` contains design tokens, themes, primitives, and accessibility conventions.
+
+`packages/sdk` contains extension contracts for plugins and integrations.
+
+## Vertical Modules
+
+Each `modules/*` package is a vertical slice with its own domain, application layer, ports, adapters, contracts, tests, and public `index.ts`.
+
+Modules should evolve independently and communicate through public contracts, application use cases, events, or read models.
