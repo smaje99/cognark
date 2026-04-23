@@ -73,6 +73,18 @@ importers:
 
   modules/diagrams: {}
 
+  modules/documents:
+    dependencies:
+      '@cognark/module-persistence':
+        specifier: workspace:*
+        version: link:../persistence
+      '@cognark/module-workspace':
+        specifier: workspace:*
+        version: link:../workspace
+      yaml:
+        specifier: 2.8.3
+        version: 2.8.3
+
   modules/export: {}
 
   modules/git-integration: {}

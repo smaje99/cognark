@@ -34,6 +34,8 @@ The workspace root contains `project.yaml` and domain folders such as:
 
 All important Markdown artifacts require frontmatter with human ID, UUID, type, title, status, lifecycle phase, owner, timestamps, and links.
 
+The document parser treats that frontmatter as mandatory. Valid Markdown artifacts are projected into `nodes`, `artifact_files`, and `file_index`; invalid artifacts are recorded as parse errors in `file_index` without creating semantic graph nodes.
+
 ## SQLite Role
 
 SQLite stores operational projections:

@@ -24,6 +24,7 @@ Introduce these behind ports and adapters when the corresponding requirement nee
 - bpmn-js for BPMN modeling.
 - `node:sqlite` behind a persistence adapter for `REQ-003`.
 - JSONL files in `.workspace/logs` behind a logging adapter for `REQ-004`.
+- `yaml` for mandatory Markdown frontmatter parsing in `REQ-005`.
 - MCP SDK for `apps/mcp`.
 - Zod or equivalent schema validation for contracts.
 - Playwright for UI/e2e checks once UI surfaces exist.

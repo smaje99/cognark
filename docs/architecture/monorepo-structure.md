@@ -16,6 +16,7 @@ modules/
   session/
   persistence/
   logging/
+  documents/
   artifacts/
   context/
   graph/
@@ -56,3 +57,5 @@ Modules should evolve independently and communicate through public contracts, ap
 `modules/persistence` owns the local SQLite operational schema, migration runner, and project projection bootstrap. It enters the workspace initializer through an outbound port so workspace domain code stays independent from SQLite bindings.
 
 `modules/logging` owns local structured JSONL logs under `.workspace/logs`. It provides append, recent-read, rotation, and export operations without external telemetry.
+
+`modules/documents` owns Markdown artifact frontmatter parsing and local index synchronization. It validates mandatory YAML frontmatter and projects valid artifacts into SQLite through a persistence port.
